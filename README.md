@@ -44,13 +44,13 @@ The proposed model to analyse and fine tune to user’s style will try to
 **Example**
 ------
 Email 1: 
-> From: Lara  
-> To: Team members 
+> From: Lara </br>
+> To: Team members </br>
 > Email Body: As my last day is Friday, November 30th, I would love to toast the good times and special memories that I have shared with you over the past five years. Please join me for the party at Teala’s (W. Dallas) on Thursday, November 29th, beginning at 5pm. Looking forward to being with you, Lara 
  
 Email 2:  
-> From: Lara  
-> To: Team members 
+> From: Lara</br>
+> To: Team members</br> 
 > Email Body: Hey guys, Let’s not forget that we have a party tomorrow. Do show up! See you there.
 
 Zhang and Tetreault's model’s result might be `Don’t forget!` as it takes words from only one email at a time (Email 2 in this case).  But from the above emails, we can infer that second email is a follow-up to the first though it is not explicitly mentioned. Our model will try to analyse this similarity in the content and suggest more relevant email subject including the previous emails. Our model’s expected result is `Party tomorrow at Teala’s at 5PM`.
@@ -67,7 +67,7 @@ Zhang and Tetreault's quality estimator used 1500 email subject lines generated 
 **Contributors**
 -----
 [Arvind Sastha](https://github.com/arvindsastha/) </br>
-[Bhavana](https://github.com/cegbhavana/)
+[Bhavana](https://github.com/bhavanabalraj/)
 
 **Credits**
 ----
