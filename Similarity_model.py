@@ -11,8 +11,6 @@ from sklearn.decomposition.truncated_svd import TruncatedSVD
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.preprocessing import Normalizer
 from sklearn.metrics.pairwise import linear_kernel
-import numpy as np
-
 
 class SimilarEmail:
     
@@ -38,7 +36,9 @@ class SimilarEmail:
     
     def addEmailToModel(self, email_body):
         if email_body is not None:
-            self.corpus.append(' '.join(self.getTokens(email_body)))
+            token_list = self.getTokens(email_body)
+            tokens = ' '.join(map(str, token_list))
+            self.corpus.append(tokens)
 
         
     def buildModel(self):
