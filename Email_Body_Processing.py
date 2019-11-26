@@ -202,6 +202,9 @@ def segrating_reply_email(email_body, inbox_identifier):
   global Date
   global Subject
   global Body
+  global Email_set
+  global From_pair
+  global To_pair
   
   message_body = email_body.get_payload()
   message_body = re.sub("\\n>>" , "", message_body).strip()
@@ -413,7 +416,7 @@ def segrating_reply_email(email_body, inbox_identifier):
         
       body = body.strip()
       
-      if not body:
+      if not body or not from_header or not formatted_recipient or not header_date or not subject:
         continue
       
       if body not in email_set:
@@ -466,7 +469,7 @@ def segrating_reply_email(email_body, inbox_identifier):
       
       body = body.strip()
 
-      if not body:
+      if not body or not from_header or not formatted_recipient or not header_date or not subject:
         continue
       
       if body not in email_set:
@@ -656,7 +659,27 @@ def extract_conversations(folder_path):
   data_frame_2 = pk.load(open("pair_and_email_list.pickle", "rb"))
   print(data_frame_2)
 
-extract_conversations(email_dataset_folder)
+  From_pair = []
+  To_pair = []
+  Email_set = []
+  
+  for key, value in pair_mail.items():
+    key_split = key.split(";")
+    From_pair.append(key_split[0])
+    To_pair.append(key_split[1])
+    Email_set.append(value)
+  
+  data_frame_3 = pd.DataFrame()
+  data_frame_3['From'] = From_pair
+  data_frame_3['To'] = To_pair
+  data_frame_3['Email Set'] = Email_set
+  
+  data_frame_3.to_csv("from_to_email_list.csv", index=False) 
+  data_frame_3.to_pickle("from_to_email_list.pickle")
+  data_frame_3 = pk.load(open("from_to_email_list.pickle", "rb"))
+  print(data_frame_3)
+
+extract_conversations(email_test_folder)
         
 '''  
 #filename = os_join("..\\Dataset\\Test\\", "test_email_body.txt")    
