@@ -193,7 +193,15 @@ def format_date_in_forward_reply_header(input_string):
   output_date += input_date_split[1].strip() + " "
   output_date += input_date_split[2].strip() + input_date_split[3].strip()
   return output_date
+
   
+def email_body_characteristics(mail):
+  number_of_sentences = mail.split(".")
+  mail = mail.replace(".","")
+  
+  return len(number_of_sentences), len(mail.split(" "))
+
+
 def segrating_reply_email(email_body, inbox_identifier):
   global data_frame
   global data_frame_1
@@ -415,6 +423,11 @@ def segrating_reply_email(email_body, inbox_identifier):
         key = formatted_recipient + ";" + from_header
         
       body = body.strip()
+      
+      sentence_count, words_count = email_body_characteristics(body)
+      
+      if sentence_count < 3 or words_count < 25:
+        continue
       
       if not body or not from_header or not formatted_recipient or not header_date or not subject:
         continue
