@@ -73,6 +73,13 @@ Zhang and Tetreault's quality estimator used 1500 email subject lines generated 
 * Cytoolz
 * TensorboardX
 
+**Model training**
+-----
+We need to set the environment variable DATA = path_to_data_directory 
+ # Pretrain Word2Vec #
+     python train_word2vec.py --path=path_to_save_w2v_model
+
+
 **Contributors**
 -----
 [Arvind Sastha](https://github.com/arvindsastha/) </br>
