@@ -64,6 +64,15 @@ Zhang and Tetreault's quality estimator used 1500 email subject lines generated 
 * Anaconda for implementation
 * Git for dependency management
 
+**Dependencies**
+-----
+* Python 3 (tested on python 3.6)
+* PyTorch 0.4.0
+    with GPU and CUDA enabled installation (though the code is runnable on CPU, it would be way too slow)
+* Gensim
+* Cytoolz
+* TensorboardX
+
 **Contributors**
 -----
 [Arvind Sastha](https://github.com/arvindsastha/) </br>
