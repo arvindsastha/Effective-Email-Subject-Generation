@@ -71,14 +71,7 @@ Zhang and Tetreault's quality estimator used 1500 email subject lines generated 
     with GPU and CUDA enabled installation (though the code is runnable on CPU, it would be way too slow)
 * Gensim
 * Cytoolz
-* TensorboardX
-
-**Model training**
------
-We need to set the environment variable DATA = path_to_data_directory 
- # Pretrain Word2Vec #
-     python train_word2vec.py --path=path_to_save_w2v_model
-
+* Tensorflow-gpu
 
 **Contributors**
 -----
